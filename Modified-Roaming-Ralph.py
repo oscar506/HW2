@@ -1,6 +1,6 @@
 # Roaming-Ralph was modified to remove collision part.
 
-#Team: Bruno Recillas // Oscar Ramirez
+#Team: Bruno Recillas // Oscar Ramirez // Garret Jackson // Saul Castro // Steven Hewitt
 
 import direct.directbase.DirectStart
 from panda3d.core import Filename,AmbientLight,DirectionalLight
