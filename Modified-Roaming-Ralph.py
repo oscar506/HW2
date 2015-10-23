@@ -59,32 +59,24 @@ class World(DirectObject):
         #creates Earth
         self.earth = Actor("models/planet_sphere.egg.pz")
         self.earth.reparentTo(render)
-        self.earth.setScale(5.0)
-        self.earth.setPos(15,25,5)
+        self.earth.setScale(6.0)
+        self.earth.setPos(40,25,6)
         self.earth_texture = loader.loadTexture("models/earth_1k_tex.jpg")
         self.earth.setTexture(self.earth_texture)
-
-        #creates Mars
-        self.mars = Actor("models/planet_sphere.egg.pz")
-        self.mars.reparentTo(render)
-        self.mars.setScale(8.0)
-        self.mars.setPos(-30,25,8)
-        self.mars_texture = loader.loadTexture("models/mars_1k_tex.jpg")
-        self.mars.setTexture(self.mars_texture)
 
         #creates Mercury
         self.mercury = Actor("models/planet_sphere.egg.pz")
         self.mercury.reparentTo(render)
-        self.mercury.setScale(3.0)
-        self.mercury.setPos(-40,-25,3)
+        self.mercury.setScale(2.0)
+        self.mercury.setPos(-40,-25,2)
         self.mercury_texture = loader.loadTexture("models/mercury_1k_tex.jpg")
         self.mercury.setTexture(self.mercury_texture)
 
         #creates Venus
         self.venus = Actor("models/planet_sphere.egg.pz")
         self.venus.reparentTo(render)
-        self.venus.setScale(10.0)
-        self.venus.setPos(40,-15,10)
+        self.venus.setScale(4.0)
+        self.venus.setPos(40,-30,4)
         self.venus_texture = loader.loadTexture("models/venus_1k_tex.jpg")
         self.venus.setTexture(self.venus_texture)
 
