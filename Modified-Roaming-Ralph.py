@@ -47,7 +47,7 @@ class World(DirectObject):
         self.environ.setPos(0,0,0)
         self.environ.setScale(100,100,1)
         self.moon_tex = loader.loadTexture("models/moon_1k_tex.jpg")
-    	self.environ.setTexture(self.moon_tex, 1)
+        self.environ.setTexture(self.moon_tex, 1)
 
         # Create the main character, Ralph
 
@@ -55,24 +55,6 @@ class World(DirectObject):
         self.ralph.reparentTo(render)
         self.ralph.setScale(.2)
         self.ralph.setPos(0,0,0)
-
-        #creates the car
-        self.Groundroamer = Actor("models/Groundroamer.egg")
-        self.Groundroamer.reparentTo(render)
-        self.Groundroamer.setScale(0.2)
-        self.Groundroamer.setPos(30,25,0)
-        self.Groundroamer.setHpr(0,0,0)
-        self.Groundroamer_texture = loader.loadTexture("models/Groundroamer.tif")
-        self.Groundroamer.setTexture(self.Groundroamer_texture)
-
-
-        #creates the Lander
-        self.Lander = Actor("models/lunarlander")
-        self.Lander.reparentTo(render)
-        self.Lander.setScale(0.1)
-        self.Lander.setPos(45,50,0)
-        self.Lander_texture = loader.loadTexture("models/landermap_Material_#16_CL.tif")
-        self.Lander.setTexture(self.Lander_texture)
 
         #creates Earth
         self.earth = Actor("models/planet_sphere.egg.pz")
