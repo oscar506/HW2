@@ -12,8 +12,15 @@ from direct.showbase.DirectObject import DirectObject
 import random, sys, os, math
 from direct.interval.IntervalGlobal import Sequence
 from panda3d.core import Point3
+from direct.gui.DirectGui import *
 
 SPEED = 0.5
+login_text = "Login/Register"
+bk_text = "This is my Demo"
+textObject = OnscreenText(text = bk_text, pos = (0.95,-0.95), 
+scale = 0.07,fg=(1,0.5,0.5,1),align=TextNode.ACenter,mayChange=1)
+
+ 
 
 # Function to put instructions on the screen.
 def addInstructions(pos, msg):
@@ -23,7 +30,71 @@ def addInstructions(pos, msg):
 def addTitle(text):
     return OnscreenText(text=text, style=1, fg=(1,1,1,1), pos=(1.3,-0.95), align=TextNode.ARight, scale = .07)
 
+#login/registration GUI    
+
+#RIGHT HERE IS WHERE THE CONFIRMATION FOR REGISTER WOULD BE  
+def confirmRegister():
+    bk_text = "Registration Complete"
+    textObject.setText(bk_text)
+    w = World()
+    
+    
+    
+#RIGHT HERE IS WHERE THE CONFIRMATION FOR LOGIN WOULD BE    
+def confirmLogin():
+    bk_text = "Login Complete"
+    textObject.setText(bk_text)
+    w = World()
+
+
+#login Screen
+def setLogin():
+    loginFrame = DirectFrame(frameColor=(1, 0, 0, 1),frameSize=(-0.5, 0.5, -0.5, 0.5), pos=(1, 0, 0.5) )
+    
+    bk_text = "Login"
+    textObject.setText(bk_text)
+    
+    emailBox = DirectEntry(parent=loginFrame, text = "",scale = .05,pos=(-0.35,0,.25),numLines= 1)
+    emailLabel = DirectLabel(parent=loginFrame, text="Email: ",scale=0.05,
+                             pos=(-0.35,0,.32))
+    passwordBox = DirectEntry(parent=loginFrame, text = "",scale = .05,pos=(-0.35,0,.12))
+    passwordLabel = DirectLabel(parent=loginFrame,text="Password: ",scale=0.05,
+                                                         pos=(-0.30,0,.19))
+        
+    loginButton = DirectButton(parent=loginFrame, text="login",scale=0.09,command=confirmLogin,pos=(0.1,0,-.25))
+  
+
+#registration Screen 
+def setRegister():
+    registerFrame = DirectFrame(frameColor=(0, 0, 0.2, 1),frameSize=(-0.5, 0.5, -0.5, 0.5), pos=(1, 0, 0.5) )
+    
+    bk_text = "Register"
+    textObject.setText(bk_text)
+
+    emailBox = DirectEntry(parent=registerFrame, text = "",scale = .05,pos=(-0.35,0,.25),numLines= 1)
+    emailLabel = DirectLabel(parent=registerFrame,text="Email: ",scale=0.05,
+                             pos=(-0.35,0,.32))
+    passwordBox = DirectEntry(parent=registerFrame, text = "",scale = .05,pos=(-0.35,0,.12))
+    passwordLabel = DirectLabel(parent=registerFrame,text="Password: ",scale=0.05,
+                                                      pos=(-0.30,0,.19))
+    confirmPass = DirectEntry(parent=registerFrame, text = "",scale = .05,pos=(-0.35,0,-0.02))
+    confierPass = DirectLabel(parent=registerFrame,text="confirm Password: ",scale=0.05,
+                                pos=(-0.20,0,0.05))
+    registerButton = DirectButton(parent=registerFrame, text="register",scale=0.09,command=confirmRegister,pos=(0.1,0,-.25))
+
+#first screen you see that asks if user wants to login or register
+def firstScreen():
+    frame = DirectFrame(frameColor=(0, 1, 0, 1),frameSize=(-0.45, 0.45, -0.2, 0.3), pos=(0, 0, 0) )
+    #add button
+    button_1 = DirectButton(parent=frame, text="login",scale=0.09,command=setLogin,pos=(-.2,0,0))
+    #add button
+    button_1 = DirectButton(parent=frame, text="register",scale=0.09,command=setRegister,pos=(0.2,0,0))
+    #add Label
+    label_1 = DirectLabel(parent=frame,text="What would you like to do?",scale=0.07,
+                          pos=(0,0,.2))
+
 class World(DirectObject):
+    firstScreen()
 
     def __init__(self):
 
@@ -191,5 +262,8 @@ class World(DirectObject):
         return task.cont
 
 
-w = World()
+ 
+
+
+firstScreen()
 base.run()
